@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff0040;
+}
+
+.sidebar {
+    width: 250px; /* Ukuran tetap, bisa diubah sesuai kebutuhan */
+    background-color: #ff0040;
+    position: fixed;
+    height: 100%;
+    padding-top: 20px;
+
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.content {
+    margin-left: 250px; /* Margin tetap sesuai lebar sidebar */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+h1 {
+    color: #34495e;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .sidebar {
+        left: -250px; /* Memastikan sidebar tersembunyi di luar layar */
+    }
+
+    #menu-toggle:checked + .menu-icon + .sidebar {
+        left: 0; /* Menampilkan sidebar saat toggle diaktifkan */
+    }
+
+    #menu-toggle:checked + .menu-icon + .sidebar + .content {
+        margin-left: 250px; /* Mengatur margin konten saat sidebar terbuka */
+    }
+
+    .content {
+        margin-left: 0; /* Konten mengambil seluruh lebar saat sidebar tertutup */
+        width: 100%; /* Pastikan konten menggunakan lebar penuh */
+        padding: 10px; /* Mengurangi padding untuk tampilan yang lebih baik */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 200px; /* Ukuran sidebar lebih kecil untuk layar kecil */
+    }
+
+    .content {
+        padding: 10px; /* Padding konten lebih kecil untuk menyesuaikan ruang */
+    }
+
+    .sidebar h2 {
+        font-size: 1.5em; /* Mengurangi ukuran font untuk judul */
+    }
+
+    .sidebar ul li {
+        padding: 8px; /* Padding yang lebih kecil */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Mengurangi ukuran font untuk judul utama */
+    }
+}
